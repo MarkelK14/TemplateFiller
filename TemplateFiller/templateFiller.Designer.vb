@@ -22,16 +22,17 @@ Partial Class templateFiller
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(templateFiller))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtTemplate = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.columnMarcadores = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.columnValores = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnCargar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.columnMarcadores = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.columnValores = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -56,27 +57,20 @@ Partial Class templateFiller
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.columnMarcadores, Me.columnValores})
         Me.DataGridView1.Location = New System.Drawing.Point(12, 51)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(497, 251)
         Me.DataGridView1.TabIndex = 9
-        '
-        'columnMarcadores
-        '
-        Me.columnMarcadores.Frozen = True
-        Me.columnMarcadores.HeaderText = "MARCADORES"
-        Me.columnMarcadores.Name = "columnMarcadores"
-        Me.columnMarcadores.ReadOnly = True
-        Me.columnMarcadores.Width = 150
-        '
-        'columnValores
-        '
-        Me.columnValores.Frozen = True
-        Me.columnValores.HeaderText = "VALORES"
-        Me.columnValores.Name = "columnValores"
-        Me.columnValores.Width = 300
         '
         'btnCargar
         '
@@ -85,7 +79,7 @@ Partial Class templateFiller
         Me.btnCargar.Name = "btnCargar"
         Me.btnCargar.Size = New System.Drawing.Size(114, 25)
         Me.btnCargar.TabIndex = 13
-        Me.btnCargar.Text = "Cargar Archivo"
+        Me.btnCargar.Text = "Cargar Plantilla"
         Me.btnCargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCargar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnCargar.UseVisualStyleBackColor = True
@@ -111,6 +105,21 @@ Partial Class templateFiller
         '
         Me.SaveFileDialog1.Filter = "All Files|*.docx"
         '
+        'columnMarcadores
+        '
+        Me.columnMarcadores.Frozen = True
+        Me.columnMarcadores.HeaderText = "MARCADOR"
+        Me.columnMarcadores.Name = "columnMarcadores"
+        Me.columnMarcadores.ReadOnly = True
+        Me.columnMarcadores.Width = 150
+        '
+        'columnValores
+        '
+        Me.columnValores.Frozen = True
+        Me.columnValores.HeaderText = "VALOR"
+        Me.columnValores.Name = "columnValores"
+        Me.columnValores.Width = 300
+        '
         'templateFiller
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -134,8 +143,8 @@ Partial Class templateFiller
     Friend WithEvents btnGuardar As Button
     Friend WithEvents txtTemplate As TextBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents columnMarcadores As DataGridViewTextBoxColumn
-    Friend WithEvents columnValores As DataGridViewTextBoxColumn
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents columnMarcadores As DataGridViewTextBoxColumn
+    Friend WithEvents columnValores As DataGridViewTextBoxColumn
 End Class

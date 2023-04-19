@@ -42,6 +42,7 @@ Public Class templateFiller
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
+            btnGuardar.Enabled = False
 
             templateWord = New Microsoft.Office.Interop.Word.Application()
             documentoWord = templateWord.Documents.Add(OpenFileDialog1.FileName)
@@ -66,13 +67,19 @@ Public Class templateFiller
             Else
                 MsgBox("No se ha podido guardar el documento.", vbCritical)
             End If
-            
 
-        Catch ex2 As Exception
+
+        Catch ex As Exception
 
         Finally
-            documentoWord.Close(WdSaveOptions.wdDoNotSaveChanges)
-            templateWord.Quit()
+            btnGuardar.Enabled = True
+
+            Try
+                documentoWord.Close(WdSaveOptions.wdDoNotSaveChanges)
+                templateWord.Quit()
+            Catch ex2 As Exception
+
+            End Try
         End Try
 
     End Sub
